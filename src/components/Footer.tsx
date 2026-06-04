@@ -22,7 +22,7 @@ export default function Footer() {
             <h4 className={styles.sectionTitle}>Quick Links</h4>
             <ul className={styles.links}>
               <li><Link href="/aboutus">About Us</Link></li>
-              <li><Link href="/embrodery">Services</Link></li>
+              <li><Link href="/embroidery">Services</Link></li>
               <li><Link href="/process">Our Process</Link></li>
               <li><Link href="/media-coverage">Limelight</Link></li>
               <li><Link href="/initiative">Initiatives</Link></li>

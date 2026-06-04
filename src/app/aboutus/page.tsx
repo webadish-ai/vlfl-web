@@ -9,7 +9,7 @@ const testimonials = [
   {
     name: "Emma Hart",
     location: "London, UK",
-    image: "https://vashishthaluxuryfashion.com/wp-content/uploads/2023/03/cropped-logo-only.jpg",
+    image: null,
     quote:
       '"Working with Vashishtha is always a pleasure, their efficiency and understanding of creative briefs is excellent, alongside their considerate and inspiring team."',
   },
@@ -109,7 +109,13 @@ export default function AboutUs() {
             {testimonials.map((item) => (
               <article key={item.name} style={{ border: "1px solid var(--color-border)", padding: "1rem", background: "var(--color-surface)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", marginBottom: "0.9rem" }}>
-                  <img src={item.image} alt={item.name} style={{ width: "52px", height: "52px", borderRadius: "50%", objectFit: "cover", border: "1px solid var(--color-border)" }} />
+                  {item.image ? (
+                    <img src={item.image} alt={item.name} style={{ width: "52px", height: "52px", borderRadius: "50%", objectFit: "cover", border: "1px solid var(--color-border)" }} />
+                  ) : (
+                    <div style={{ width: "52px", height: "52px", borderRadius: "50%", border: "1px solid var(--color-border)", background: "var(--color-border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "1rem", fontWeight: 600, color: "var(--color-text-muted)", flexShrink: 0 }}>
+                      {item.name.split(" ").map((n: string) => n[0]).join("")}
+                    </div>
+                  )}
                   <div>
                     <p style={{ margin: 0, fontWeight: 600 }}>{item.name}</p>
                     <p style={{ margin: 0, fontSize: "0.85rem", color: "var(--color-text-muted)" }}>{item.location}</p>

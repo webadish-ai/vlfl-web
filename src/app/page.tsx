@@ -20,7 +20,7 @@ export default function Home() {
             Couture and pret-a-porter development from Mumbai, with hand craftsmanship, machine precision, and end-to-end garment execution.
           </p>
           <div className="fade-in" style={{ animationDelay: '0.8s' }}>
-            <a href="/embrodery" className="btn-primary">Explore Services</a>
+            <a href="/embroidery" className="btn-primary">Explore Services</a>
           </div>
         </div>
       </section>

@@ -3,23 +3,15 @@ const runwayImages = [
   "/images/source/media-runway-2.jpg",
   "/images/source/media-runway-3.jpg",
   "/images/source/media-runway-4.jpg",
-  "https://vashishthaluxuryfashion.com/wp-content/uploads/2023/03/MK-SPRING-2019-RTW-2-1-scaled.jpg",
-  "https://vashishthaluxuryfashion.com/wp-content/uploads/2024/10/00003-iris-van-herpen-fall-2022-couture-credit-gorunway.jpg",
 ];
 
 const photoshootImages = [
   "/images/source/media-shoot-1.jpg",
   "/images/source/media-shoot-2.jpg",
   "/images/source/media-celeb-1.jpg",
-  "https://vashishthaluxuryfashion.com/wp-content/uploads/2023/02/4-1.jpg",
-  "https://vashishthaluxuryfashion.com/wp-content/uploads/2023/02/Untitled-1.jpg",
 ];
 
 const pressImages = [
-  "https://vashishthaluxuryfashion.com/wp-content/uploads/2023/03/BEYONCE-IN-MARY-KATRANTZOU.jpg",
-  "https://vashishthaluxuryfashion.com/wp-content/uploads/2023/03/J-BALVIN-BRIGHT-BOLD-LOOK-%40MET-GALA-2021.jpg",
-  "https://vashishthaluxuryfashion.com/wp-content/uploads/2023/03/MARY-KATRANTZOU-BAZAAR-MAGAZINE-LOOK.jpg",
-  "https://vashishthaluxuryfashion.com/wp-content/uploads/2023/03/MOSCHINO-for-GWEN-STEFANI-%40-MET-GALA-2019-scaled.jpg",
   "/images/source/media-celeb-2.jpg",
   "/images/source/media-celeb-3.jpg",
 ];

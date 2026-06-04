@@ -10,7 +10,7 @@ const workingHours = [
 
 export default function Contact() {
   return (
-    <div style={{ paddingTop: "120px", minHeight: "100vh" }}>
+    <div style={{ paddingTop: "120px" }}>
       <div className="container" style={{ maxWidth: "1000px", margin: "0 auto", paddingBottom: "4rem" }}>
         <h1 className="title-large fade-in text-center" style={{ marginBottom: "1rem" }}>
           Contact

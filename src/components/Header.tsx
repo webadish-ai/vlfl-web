@@ -7,7 +7,7 @@ import styles from "./Header.module.css";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/aboutus", label: "About" },
-  { href: "/embrodery", label: "Services" },
+  { href: "/embroidery", label: "Services" },
   { href: "/process", label: "Process" },
   { href: "/media-coverage", label: "Limelight" },
   { href: "/initiative", label: "Initiative" },
@@ -25,7 +25,7 @@ export default function Header() {
           <Link href="/">
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <img
-                src="https://vashishthaluxuryfashion.com/wp-content/uploads/2022/12/v-fashion-logo.png"
+                src="/images/logo.jpg"
                 alt="Vashishtha Luxury Fashion Logo"
                 style={{ height: '72px', width: 'auto' }}
               />
