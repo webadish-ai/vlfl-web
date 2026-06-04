@@ -1,66 +1,119 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className={styles.home}>
+      {/* HERO SECTION */}
+      <section className={styles.hero}>
+        <div className={styles.videoWrapper}>
+          <div className={styles.videoPlaceholder} style={{ padding: 0, opacity: 1 }}>
+            <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
+              <source src="/hero-video.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+        <div className={styles.heroContent}>
+          <h1 className={`${styles.heroTitle} slide-up`}>
+            Luxury Embroidery <br /> <span style={{ color: "var(--color-accent)" }}>Made Global</span>
+          </h1>
+          <p className={`${styles.heroSubtitle} fade-in`} style={{ animationDelay: '0.4s' }}>
+            Couture and pret-a-porter development from Mumbai, with hand craftsmanship, machine precision, and end-to-end garment execution.
+          </p>
+          <div className="fade-in" style={{ animationDelay: '0.8s' }}>
+            <a href="/embrodery" className="btn-primary">Explore Services</a>
+          </div>
+        </div>
+      </section>
+
+      {/* OFFICE & MATERIALS TEASER */}
+      <section className="section-padding container">
+        <div className="text-center" style={{ marginBottom: "4rem" }}>
+          <h2 className="title-medium">The Art of Creation</h2>
+          <p className="text-body" style={{ maxWidth: "600px", margin: "0 auto" }}>
+            Every Vashishtha development moves through research, sourcing, embellishment, tailoring, and finishing with constant client-side visibility.
           </p>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        
+        <div className={styles.gallery}>
+          <div className={styles.galleryItem}>
+            <div className={styles.imagePlaceholder} style={{ padding: 0, border: 'none', backgroundColor: '#fff' }}>
+              <img src="/images/archive.jpg" alt="Our Workspace" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            </div>
+            <h3 className={styles.galleryTitle}>Hand Embroidery Archive</h3>
+          </div>
+          <div className={styles.galleryItem}>
+            <div className={styles.imagePlaceholder} style={{ padding: 0, border: 'none', backgroundColor: '#fff' }}>
+              <img src="/images/source/about-machine.jpg" alt="Computerized embroidery setup" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+            </div>
+            <h3 className={styles.galleryTitle}>Machine & CAD Precision</h3>
+          </div>
         </div>
-      </main>
+        <div className="text-center" style={{ marginTop: "4rem" }}>
+           <a href="/aboutus" className="btn-outline">Discover Vashishtha</a>
+        </div>
+      </section>
+
+      <section className="section-padding container" style={{ paddingTop: 0 }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gap: "1rem",
+          }}
+        >
+          {[
+            {
+              title: "100+ In-House Artisans",
+              copy: "Sampling and production are supported by specialist teams trained across couture embellishment, garment finishing, and quality control.",
+            },
+            {
+              title: "4,000+ Sq. Ft. Setup",
+              copy: "The Mumbai facility is structured for disciplined production, transparent WIP communication, and refined finishing standards.",
+            },
+            {
+              title: "Global Client Reach",
+              copy: "Since 2010, Vashishtha has supported international couture and pret-a-porter labels with export-ready execution and compliance-led sourcing.",
+            },
+          ].map((item, index) => (
+            <article
+              key={item.title}
+              className="slide-up card-hover"
+              style={{
+                animationDelay: `${0.2 + index * 0.08}s`,
+                border: "1px solid var(--color-border)",
+                background: "var(--color-surface)",
+                padding: "1.5rem",
+              }}
+            >
+              <h3 style={{ marginBottom: "0.75rem", fontSize: "1.3rem" }}>{item.title}</h3>
+              <p style={{ margin: 0, color: "var(--color-text-muted)", lineHeight: 1.75 }}>{item.copy}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+      {/* RECENT COLLECTION */}
+      <section className="section-padding container">
+        <h2 className="title-medium text-center slide-up">Vashishtha's Recent Collection</h2>
+        <div className="text-center slide-up" style={{ animationDelay: '0.2s', marginBottom: '2rem' }}>
+           <p className="text-body" style={{ maxWidth: "720px", margin: "0 auto" }}>A selection from the source-site collection archive, highlighting embellished silhouettes, surface development, and couture-ready finishing.</p>
+        </div>
+        <div className={styles.collectionGrid}>
+          {[
+            '/images/collection-1.jpg',
+            '/images/collection-0017.jpg',
+            '/images/collection-0019.jpg',
+            '/images/collection-2.jpg',
+            '/images/collection-3.jpg',
+            '/images/collection-4.jpg',
+            '/images/collection-5.jpg',
+            '/images/collection-8.jpg',
+          ].map((src, index) => (
+            <div key={src} className={`${styles.collectionItem} hover-zoom-container slide-up card-hover`} style={{ animationDelay: `${0.2 + (index * 0.1)}s` }}>
+              <img src={src} alt={`Collection Item ${index + 1}`} className="hover-zoom-img" />
+            </div>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

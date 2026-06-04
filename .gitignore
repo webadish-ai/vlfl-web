@@ -39,3 +39,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# large media (host on CDN instead)
+public/hero-video.mp4
+
+# data / export files
+*.csv
+*.xml
+extract.js
+media_summary.json
+pages_summary.json
+"tsconfig copy.json"
+tsconfig\ copy.json

@@ -1,0 +1,74 @@
+.footer {
+  background-color: var(--color-primary);
+  color: var(--color-border);
+  padding: 4rem 0 2rem;
+  font-family: var(--font-sans);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.brand {
+  max-width: 300px;
+}
+
+.logoText {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-secondary);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.brand p {
+  line-height: 1.6;
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+.sectionTitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-accent);
+  margin-bottom: 1.5rem;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.links li {
+  margin-bottom: 0.75rem;
+}
+
+.links a {
+  font-size: 0.875rem;
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.links a:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 0.875rem;
+  opacity: 0.6;
+}
