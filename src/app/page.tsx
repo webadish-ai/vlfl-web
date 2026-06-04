@@ -8,7 +8,7 @@ export default function Home() {
         <div className={styles.videoWrapper}>
           <div className={styles.videoPlaceholder} style={{ padding: 0, opacity: 1 }}>
             <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
-              <source src="/hero-video.mp4" type="video/mp4" />
+              <source src="/hero-video-web.mp4" type="video/mp4" />
             </video>
           </div>
         </div>

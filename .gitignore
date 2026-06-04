@@ -42,6 +42,7 @@ next-env.d.ts
 
 # large media (host on CDN instead)
 public/hero-video.mp4
+public/hero-video-compressed.mp4
 
 # data / export files
 *.csv
