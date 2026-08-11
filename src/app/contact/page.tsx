@@ -1,3 +1,5 @@
+import PageHero from "@/components/PageHero";
+
 const workingHours = [
   ["Monday", "10 AM - 7 PM"],
   ["Tuesday", "10 AM - 7 PM"],
@@ -10,11 +12,19 @@ const workingHours = [
 
 export default function Contact() {
   return (
-    <div style={{ paddingTop: "120px" }}>
+    <div style={{ paddingTop: "73px", minHeight: "100vh" }}>
+      <PageHero
+        imageSrc="/images/source/about-infrastructure.jpg"
+        tagline="Get In Touch"
+        title="Contact Our Atelier"
+        subtitle="Partner with our Mumbai studio for custom swatches, sampling, and full collection manufacturing."
+        stats={[
+          { value: "MUMBAI", label: "Studio Atelier" },
+          { value: "MON - SAT", label: "Atelier Hours" },
+          { value: "DIRECT", label: "Client Support" },
+        ]}
+      />
       <div className="container" style={{ maxWidth: "1000px", margin: "0 auto", paddingBottom: "4rem" }}>
-        <h1 className="title-large fade-in text-center" style={{ marginBottom: "1rem" }}>
-          Contact
-        </h1>
 
         <p className="fade-in text-body" style={{ textAlign: "center", animationDelay: "0.2s", margin: "0 auto 2rem", maxWidth: "700px" }}>
           Send us a message and we shall get back to you. For quick coordination, you can also reach us directly on WhatsApp.

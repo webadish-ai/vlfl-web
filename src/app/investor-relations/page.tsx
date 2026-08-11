@@ -11,7 +11,9 @@ type InvestorSection = {
   documents: DocumentItem[];
 };
 
-const SITE_URL = "https://vashishthaluxuryfashion.com";
+import PageHero from "@/components/PageHero";
+
+const SITE_URL = "http://www.vashishthaluxuryfashionltd.com";
 
 const toLocalDocUrl = (url: string) => {
   const absoluteUrl = url.startsWith("http") ? url : `${SITE_URL}${url}`;
@@ -252,11 +254,19 @@ const keyPeople = [
 
 export default function InvestorRelations() {
   return (
-    <div style={{ paddingTop: "120px", minHeight: "100vh" }}>
+    <div style={{ paddingTop: "73px", minHeight: "100vh" }}>
+      <PageHero
+        imageSrc="/images/source/about-global.jpg"
+        tagline="Corporate Governance & Disclosures"
+        title="Investor Relations"
+        subtitle="Official statutory filings, financial reports, board policies, and shareholding patterns."
+        stats={[
+          { value: "COMPLIANT", label: "SEBI Disclosures" },
+          { value: "ANNUAL", label: "Financial Reports" },
+          { value: "GOVERNANCE", label: "Board Oversight" },
+        ]}
+      />
       <div className="container" style={{ paddingBottom: "4rem" }}>
-        <h1 className="title-large fade-in" style={{ marginBottom: "1rem" }}>
-          Investor Relations
-        </h1>
         <p className="text-body fade-in" style={{ animationDelay: "0.2s", maxWidth: "900px", marginBottom: "2rem" }}>
           This page consolidates investor relations sections and documents currently published on the official Vashishtha Luxury Fashion Ltd. website.
         </p>

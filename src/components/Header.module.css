@@ -3,12 +3,18 @@
   top: 0;
   left: 0;
   width: 100%;
-  padding: 1.5rem 0;
+  padding: 0.75rem 0;
+  background-color: transparent;
+  backdrop-filter: blur(0px);
+  z-index: 100;
+  border-bottom: 1px solid transparent;
+  transition: all var(--transition-normal);
+}
+
+.scrolled {
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  z-index: 100;
-  border-bottom: 1px solid var(--color-border);
-  transition: all var(--transition-normal);
+  border-bottom-color: var(--color-border);
 }
 
 .container {
@@ -29,35 +35,24 @@
 .logo img {
   height: 48px;
   width: auto;
-  /* Placeholder image sizing */
   object-fit: contain;
-}
-
-.logoText {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  color: var(--color-primary);
-  text-transform: uppercase;
-  margin-left: 1rem;
 }
 
 .nav {
   display: flex;
-  gap: 2.5rem;
+  gap: 2.25rem;
   align-items: center;
 }
 
 .navLink {
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-text);
   position: relative;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.35rem;
 }
 
 .navLink::after {
@@ -77,6 +72,6 @@
 
 @media (max-width: 900px) {
   .nav {
-    display: none; /* Mobile menu needed later */
+    display: none;
   }
 }

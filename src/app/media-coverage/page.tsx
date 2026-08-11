@@ -1,3 +1,5 @@
+import PageHero from "@/components/PageHero";
+
 const runwayImages = [
   "/images/source/media-runway-1.jpg",
   "/images/source/media-runway-2.jpg",
@@ -18,11 +20,19 @@ const pressImages = [
 
 export default function MediaCoverage() {
   return (
-    <div style={{ paddingTop: "120px", minHeight: "100vh" }}>
+    <div style={{ paddingTop: "73px", minHeight: "100vh" }}>
+      <PageHero
+        variant="gradient"
+        tagline="International Recognition"
+        title="Vashishtha in the Limelight"
+        subtitle="Editorial features, global runway moments, and celebrity styling collaborations."
+        stats={[
+          { value: "RUNWAY", label: "Paris & Milan Features" },
+          { value: "EDITORIAL", label: "Global Press Coverage" },
+          { value: "COUTURE", label: "Celebrity Styling" },
+        ]}
+      />
       <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", paddingBottom: "4rem" }}>
-        <h1 className="title-large fade-in text-center" style={{ marginBottom: "1rem" }}>
-          Limelight
-        </h1>
 
         <p className="fade-in text-body" style={{ animationDelay: "0.2s", maxWidth: "900px", margin: "0 auto 2.5rem", textAlign: "center" }}>
           Alongside intricate embroidery development, Vashishtha's work appears in runway presentations, editorial shoots, and celebrity styling references across global fashion media.

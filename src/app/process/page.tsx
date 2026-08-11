@@ -1,3 +1,5 @@
+import PageHero from "@/components/PageHero";
+
 const processSteps = [
   {
     step: "01",
@@ -45,11 +47,19 @@ const processSteps = [
 
 export default function Process() {
   return (
-    <div style={{ paddingTop: "120px", minHeight: "100vh" }}>
+    <div style={{ paddingTop: "73px", minHeight: "100vh" }}>
+      <PageHero
+        imageSrc="/images/source/process-overview.jpg"
+        tagline="Concept to Execution"
+        title="Development & Production Process"
+        subtitle="A disciplined, transparent 7-stage workflow built for international fashion houses and couture labels."
+        stats={[
+          { value: "7 STAGES", label: "Structured Workflow" },
+          { value: "FULL WIP", label: "Client Visibility" },
+          { value: "EXPORT", label: "Ready Compliance" },
+        ]}
+      />
       <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", paddingBottom: "4rem" }}>
-        <h1 className="title-large fade-in text-center" style={{ marginBottom: "1rem" }}>
-          The Process
-        </h1>
         <p className="text-body fade-in" style={{ animationDelay: "0.2s", maxWidth: "900px", margin: "0 auto 2.5rem", textAlign: "center" }}>
           At Vashishtha Luxury Fashion Ltd., execution flows through seven connected stages: Research & Development, Sourcing, Client Development, Artwork & CAD, Production, Quality Control, and Final Dispatch.
         </p>

@@ -1,25 +1,32 @@
+"use client";
+
+import { useState } from "react";
 import styles from "./page.module.css";
+import HeroVideo from "@/components/HeroVideo";
 
 export default function Home() {
+  const [videoEnded, setVideoEnded] = useState(false);
+
   return (
     <div className={styles.home}>
       {/* HERO SECTION */}
-      <section className={styles.hero}>
+      <section 
+        className={styles.hero}
+        onClick={() => setVideoEnded(true)}
+      >
         <div className={styles.videoWrapper}>
           <div className={styles.videoPlaceholder} style={{ padding: 0, opacity: 1 }}>
-            <video autoPlay muted loop playsInline style={{ width: "100%", height: "100%", objectFit: "cover" }}>
-              <source src="/hero-video-web.mp4" type="video/mp4" />
-            </video>
+            <HeroVideo onEnded={() => setVideoEnded(true)} />
           </div>
         </div>
-        <div className={styles.heroContent}>
-          <h1 className={`${styles.heroTitle} slide-up`}>
+        <div className={`${styles.heroContent} ${videoEnded ? styles.heroContentVisible : ""}`}>
+          <h1 className={`${styles.heroTitle} ${videoEnded ? "slide-up" : ""}`}>
             Luxury Embroidery <br /> <span style={{ color: "var(--color-accent)" }}>Made Global</span>
           </h1>
-          <p className={`${styles.heroSubtitle} fade-in`} style={{ animationDelay: '0.4s' }}>
+          <p className={`${styles.heroSubtitle} ${videoEnded ? "fade-in" : ""}`} style={{ animationDelay: '0.4s' }}>
             Couture and pret-a-porter development from Mumbai, with hand craftsmanship, machine precision, and end-to-end garment execution.
           </p>
-          <div className="fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className={videoEnded ? "fade-in" : ""} style={{ animationDelay: '0.8s' }}>
             <a href="/embroidery" className="btn-primary">Explore Services</a>
           </div>
         </div>
@@ -43,7 +50,7 @@ export default function Home() {
           </div>
           <div className={styles.galleryItem}>
             <div className={styles.imagePlaceholder} style={{ padding: 0, border: 'none', backgroundColor: '#fff' }}>
-              <img src="/images/source/about-machine.jpg" alt="Computerized embroidery setup" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src="/images/source/about-machine.jpg" alt="Computerized embroidery setup" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
             </div>
             <h3 className={styles.galleryTitle}>Machine & CAD Precision</h3>
           </div>

@@ -4,13 +4,21 @@
 
 .hero {
   position: relative;
-  height: 100vh;
+  margin-top: 0;
+  height: 100dvh;
+  min-height: 560px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background-color: var(--color-primary);
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 520px;
+  }
 }
 
 .videoWrapper {
@@ -22,18 +30,34 @@
   z-index: 1;
 }
 
+.videoWrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
 .videoPlaceholder {
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  background: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.8;
+  opacity: 1;
+}
+
+.heroVideo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
 }
 
 .videoText {
-  color: var(--color-secondary);
+  color: var(--color-primary);
   font-family: var(--font-sans);
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -46,14 +70,26 @@
   position: relative;
   z-index: 2;
   text-align: center;
-  color: var(--color-secondary);
+  color: var(--color-primary);
   padding: 0 2rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 1.2s cubic-bezier(0.65, 0, 0.35, 1), visibility 1.2s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.heroContentVisible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .heroTitle {
   font-size: 5rem;
   line-height: 1.1;
   margin-bottom: 2rem;
+  color: var(--color-primary);
+  text-shadow: 0 2px 24px rgba(255, 255, 255, 0.8);
 }
 
 .heroSubtitle {
@@ -62,6 +98,7 @@
   font-weight: 300;
   letter-spacing: 0.05em;
   margin-bottom: 3rem;
+  color: var(--color-text);
   opacity: 0.9;
 }
 
@@ -128,7 +165,6 @@
 
 .collectionItem {
   width: 100%;
-  aspect-ratio: 3/4;
   overflow: hidden;
   position: relative;
   background-color: var(--color-surface);
@@ -136,7 +172,9 @@
 }
 
 .collectionItem img {
+  display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }

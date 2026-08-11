@@ -1,3 +1,5 @@
+import PageHero from "@/components/PageHero";
+
 const initiatives = [
   {
     id: "01",
@@ -48,11 +50,19 @@ const initiatives = [
 
 export default function Initiative() {
   return (
-    <div style={{ paddingTop: "120px", minHeight: "100vh" }}>
+    <div style={{ paddingTop: "73px", minHeight: "100vh" }}>
+      <PageHero
+        imageSrc="/images/source/initiative-plastic.jpg"
+        tagline="Sustainability & Community"
+        title="Empowering Artisans & Eco-Sourcing"
+        subtitle="Pioneering eco-friendly embellishments, artisan welfare, and ethical production practices."
+        stats={[
+          { value: "SEDEX", label: "Audited Facility" },
+          { value: "ECO", label: "Sustainable Sourcing" },
+          { value: "UTTHAN", label: "Artisan Empowerment" },
+        ]}
+      />
       <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", paddingBottom: "4rem" }}>
-        <h1 className="title-large fade-in text-center" style={{ marginBottom: "1rem" }}>
-          Initiative
-        </h1>
 
         <p className="fade-in text-body" style={{ animationDelay: "0.2s", maxWidth: "920px", margin: "0 auto 2.5rem", textAlign: "center" }}>
           Since 2010, Vashishtha Luxury Fashion Ltd. has built initiatives around artisan livelihood, inclusive skills, and environmental responsibility in textile and embroidery systems.

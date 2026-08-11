@@ -1,3 +1,5 @@
+import PageHero from "@/components/PageHero";
+
 const servicesList = [
   { title: "Computerized Thread & Sequin Embroidery", img: "/images/computerized-thread.jpg" },
   { title: "Embellished Jewellery & Accessories", img: "/images/embellished-jewellery.jpg" },
@@ -27,11 +29,19 @@ const cutSew = [
 
 export default function Services() {
   return (
-    <div style={{ paddingTop: "120px", minHeight: "100vh" }}>
+    <div style={{ paddingTop: "73px", minHeight: "100vh" }}>
+      <PageHero
+        imageSrc="/images/raw-materials.jpg"
+        tagline="Surface Development & Embellishment"
+        title="Our Specialized Services"
+        subtitle="From hand-rendered zardozi to high-precision computerized sequin and multi-technique garment execution."
+        stats={[
+          { value: "9+", label: "Technique Specializations" },
+          { value: "COUTURE", label: "Ready Execution" },
+          { value: "100%", label: "In-House Development" },
+        ]}
+      />
       <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", paddingBottom: "4rem" }}>
-        <h1 className="title-large fade-in text-center" style={{ marginBottom: "1rem" }}>
-          Services
-        </h1>
         <p className="fade-in text-body" style={{ animationDelay: "0.2s", margin: "0 auto 2.5rem", maxWidth: "900px", textAlign: "center" }}>
           Vashishtha Luxury Fashion Ltd. creates distinctive embellishment developments through hand embroidery, machine precision, material innovation, color detailing, fabric manipulation, prints, and engineered finishing.
         </p>
@@ -41,7 +51,18 @@ export default function Services() {
           <p style={{ marginTop: 0, color: "var(--color-text-muted)", lineHeight: 1.75, marginBottom: "1rem" }}>
             A source-site highlight section showcasing the hand embroidery language Vashishtha is known for: intricate surface work, distinctive bead mixes, and couture-led execution discipline.
           </p>
-          <img src="/images/archive.jpg" alt="Hand embroidery archive" style={{ width: "100%", border: "1px solid var(--color-border)", objectFit: "cover", aspectRatio: "16 / 7" }} />
+          <img
+            src="/images/archive.jpg"
+            alt="Hand embroidery archive"
+            style={{
+              width: "100%",
+              height: "min(75vh, 760px)",
+              border: "1px solid var(--color-border)",
+              objectFit: "contain",
+              objectPosition: "center top",
+              background: "#000",
+            }}
+          />
         </section>
 
         <section className="slide-up" style={{ animationDelay: "0.3s", marginBottom: "2.5rem" }}>

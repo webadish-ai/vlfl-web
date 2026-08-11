@@ -1,3 +1,5 @@
+import PageHero from "@/components/PageHero";
+
 const testimonials = [
   {
     name: "Ceren Coskun",
@@ -31,11 +33,19 @@ const testimonials = [
 
 export default function AboutUs() {
   return (
-    <div style={{ paddingTop: "120px", minHeight: "100vh" }}>
+    <div style={{ paddingTop: "73px", minHeight: "100vh" }}>
+      <PageHero
+        imageSrc="/images/source/about-infrastructure.jpg"
+        tagline="Vashishtha Atelier • Since 2010"
+        title="About Vashishtha"
+        subtitle="Preserving Indian embroidery traditions while leading global couture and pret-a-porter development with hand craftsmanship and machine precision."
+        stats={[
+          { value: "100+", label: "In-House Artisans" },
+          { value: "4,000+ SQ. FT.", label: "Atelier Space" },
+          { value: "GLOBAL", label: "Couture Reach" },
+        ]}
+      />
       <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", paddingBottom: "4rem" }}>
-        <h1 className="title-large fade-in text-center" style={{ marginBottom: "1rem" }}>
-          About Us
-        </h1>
 
         <p className="fade-in text-body" style={{ animationDelay: "0.2s", textAlign: "center", maxWidth: "920px", margin: "0 auto 3rem" }}>
           At Vashishtha Luxury Fashion Ltd., every piece is curated with care, precision, and respect for Indian embroidery heritage. The company combines traditional craftsmanship with a modern development mindset so each client brief can move from embellishment concept to finished garment with clarity.
