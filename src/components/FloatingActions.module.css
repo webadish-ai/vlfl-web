@@ -1,0 +1,69 @@
+.stack {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 150;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.whatsapp {
+  background-color: #25d366;
+  color: #ffffff;
+}
+
+.toTop {
+  background-color: var(--color-primary);
+  color: var(--color-secondary);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+}
+
+.toTop.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .stack {
+    right: 1rem;
+    bottom: 1rem;
+  }
+  .button {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "Sustainability & Community Initiatives | Vashishtha Luxury Fashion Ltd.",
+  description:
+    "Artisan welfare, women's skill training, plastic reduction, eco-friendly packaging, and textile-education partnerships driving Vashishtha's sustainability agenda since 2010.",
+};
 
 const initiatives = [
   {

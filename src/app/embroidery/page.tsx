@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import ImageGallery from "@/components/ImageGallery";
+
+export const metadata: Metadata = {
+  title: "Our Services | Vashishtha Luxury Fashion Ltd.",
+  description:
+    "Hand-rendered zardozi to computerized sequin embroidery, embellished accessories, digital printing, and cut-and-sew tailoring — 9+ specialized couture techniques, 100% in-house.",
+};
 
 const servicesList = [
   { title: "Computerized Thread & Sequin Embroidery", img: "/images/computerized-thread.jpg" },
@@ -67,14 +75,10 @@ export default function Services() {
 
         <section className="slide-up" style={{ animationDelay: "0.3s", marginBottom: "2.5rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.7rem", marginBottom: "1rem" }}>Variety Of Embellishments</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1rem" }}>
-            {servicesList.map((service, index) => (
-              <article key={service.title} className="slide-up card-hover" style={{ animationDelay: `${0.2 + index * 0.05}s`, border: "1px solid var(--color-border)", background: "var(--color-surface)" }}>
-                <img src={service.img} alt={service.title} style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover" }} />
-                <h3 style={{ margin: 0, padding: "0.9rem", fontFamily: "var(--font-serif)", fontSize: "1.05rem" }}>{service.title}</h3>
-              </article>
-            ))}
-          </div>
+          <ImageGallery
+            images={servicesList.map((s) => ({ src: s.img, alt: s.title, caption: s.title }))}
+            aspectRatio="4 / 3"
+          />
         </section>
 
         <section className="slide-up" style={{ animationDelay: "0.35s", marginBottom: "2.5rem" }}>
@@ -82,11 +86,10 @@ export default function Services() {
           <p style={{ marginTop: 0, color: "var(--color-text-muted)", lineHeight: 1.75, marginBottom: "1rem" }}>
             Experimental constructs where embellishment structure itself forms the garment body, engineered for lightness, flexibility, and visual impact.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", gap: "1rem" }}>
-            {noBaseFabric.map((src) => (
-              <img key={src} src={src} alt="Assembled textile garment" style={{ width: "100%", border: "1px solid var(--color-border)", objectFit: "cover", aspectRatio: "3 / 4" }} />
-            ))}
-          </div>
+          <ImageGallery
+            images={noBaseFabric.map((src, i) => ({ src, alt: `Assembled textile garment ${i + 1}` }))}
+            minItemWidth="210px"
+          />
         </section>
 
         <section className="slide-up" style={{ animationDelay: "0.4s", marginBottom: "2.5rem" }}>
@@ -94,11 +97,9 @@ export default function Services() {
           <p style={{ marginTop: 0, color: "var(--color-text-muted)", lineHeight: 1.75, marginBottom: "1rem" }}>
             Alongside embellishment execution, we support complete tailoring and finishing for full-factored development from raw materials to final dispatch-ready garments.
           </p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "1rem" }}>
-            {cutSew.map((src) => (
-              <img key={src} src={src} alt="Cut and sew garment" style={{ width: "100%", border: "1px solid var(--color-border)", objectFit: "cover", aspectRatio: "3 / 4" }} />
-            ))}
-          </div>
+          <ImageGallery
+            images={cutSew.map((src, i) => ({ src, alt: `Cut and sew garment ${i + 1}` }))}
+          />
         </section>
 
         <div className="slide-up" style={{ animationDelay: "0.45s", fontSize: "0.78rem", color: "var(--color-text)", opacity: 0.68, textAlign: "justify", lineHeight: 1.7, borderTop: "1px solid var(--color-border)", paddingTop: "1.5rem" }}>

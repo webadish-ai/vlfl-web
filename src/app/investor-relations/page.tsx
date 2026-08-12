@@ -11,7 +11,14 @@ type InvestorSection = {
   documents: DocumentItem[];
 };
 
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "Investor Relations | Vashishtha Luxury Fashion Ltd.",
+  description:
+    "Statutory filings, financial reports, board policies, shareholding patterns, and corporate governance disclosures for Vashishtha Luxury Fashion Ltd. investors.",
+};
 
 const SITE_URL = "http://www.vashishthaluxuryfashionltd.com";
 

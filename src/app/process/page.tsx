@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "Development & Production Process | Vashishtha Luxury Fashion Ltd.",
+  description:
+    "A disciplined, transparent 7-stage workflow — research, sourcing, client development, CAD, production, quality control, and dispatch — built for international fashion houses.",
+};
 
 const processSteps = [
   {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
@@ -19,7 +19,18 @@ const NAV_LINKS = [
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [lastPathname, setLastPathname] = useState(pathname);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const firstLinkRef = useRef<HTMLAnchorElement>(null);
   const isHomepage = pathname === "/";
+
+  // Close the mobile menu whenever the route changes. Adjusting state
+  // during render (rather than in an effect) avoids an extra render pass.
+  if (pathname !== lastPathname) {
+    setLastPathname(pathname);
+    setMenuOpen(false);
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,10 +41,30 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    document.body.style.overflow = "hidden";
+    firstLinkRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [menuOpen]);
+
   const isScrolledOrSubpage = scrolled || !isHomepage;
 
   return (
-    <header className={`${styles.header} ${isScrolledOrSubpage ? styles.scrolled : ""}`}>
+    <header className={`${styles.header} ${isScrolledOrSubpage ? styles.scrolled : ""} ${menuOpen ? styles.menuOpen : ""}`}>
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link href="/">
@@ -47,7 +78,7 @@ export default function Header() {
           </Link>
         </div>
 
-        <nav className={styles.nav}>
+        <nav className={styles.nav} aria-label="Primary">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
@@ -60,7 +91,48 @@ export default function Header() {
             </Link>
           ))}
         </nav>
+
+        <button
+          ref={toggleRef}
+          type="button"
+          className={styles.menuToggle}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className={styles.menuToggleBar} />
+          <span className={styles.menuToggleBar} />
+          <span className={styles.menuToggleBar} />
+        </button>
       </div>
+
+      <div
+        className={styles.backdrop}
+        aria-hidden="true"
+        onClick={() => setMenuOpen(false)}
+      />
+
+      <nav
+        id="mobile-nav"
+        className={styles.mobileNav}
+        aria-label="Mobile"
+        inert={!menuOpen}
+      >
+        {NAV_LINKS.map(({ href, label }, index) => (
+          <Link
+            key={href}
+            href={href}
+            ref={index === 0 ? firstLinkRef : undefined}
+            className={`${styles.mobileNavLink} ${
+              pathname === href ? styles.active : ""
+            }`}
+            onClick={() => setMenuOpen(false)}
+          >
+            {label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

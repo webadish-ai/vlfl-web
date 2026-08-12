@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "About Us | Vashishtha Luxury Fashion Ltd.",
+  description:
+    "100+ in-house artisans, 4,000+ sq. ft. Mumbai atelier, and ISO 9001 / Sedex certified production preserving Indian embroidery heritage for global couture brands since 2010.",
+};
 
 const testimonials = [
   {
