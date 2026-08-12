@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type CSSProperties } from "react";
+import Image from "next/image";
 import Reveal from "./Reveal";
 import Lightbox from "./Lightbox";
 
@@ -52,13 +53,14 @@ export default function ImageGallery({
               type="button"
               onClick={() => setIndex(i)}
               aria-label={`View ${img.alt} full size`}
-              style={{ display: "block", width: "100%", padding: 0, border: "none", background: "none", cursor: "pointer" }}
+              style={{ display: "block", position: "relative", width: "100%", aspectRatio, padding: 0, border: "none", background: "none", cursor: "pointer", overflow: "hidden" }}
             >
-              <img
+              <Image
                 src={img.src}
                 alt={img.alt}
-                loading="lazy"
-                style={{ width: "100%", aspectRatio, objectFit: "cover", display: "block", ...imageStyle }}
+                fill
+                sizes={`(max-width: 768px) 50vw, ${minItemWidth}`}
+                style={{ objectFit: "cover", ...imageStyle }}
               />
             </button>
             {img.caption && (

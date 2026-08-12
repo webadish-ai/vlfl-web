@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styles from "./Header.module.css";
@@ -69,9 +70,12 @@ export default function Header() {
         <div className={styles.logo}>
           <Link href="/">
             <div style={{ display: 'flex', alignItems: 'center' }}>
-              <img
+              <Image
                 src="/images/vfashion-logo-retina-1.png"
                 alt="Vashishtha Luxury Fashion Logo"
+                width={558}
+                height={265}
+                priority
                 style={{ height: '48px', width: 'auto' }}
               />
             </div>

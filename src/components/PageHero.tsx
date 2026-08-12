@@ -1,3 +1,4 @@
+import Image from "next/image";
 import styles from "./PageHero.module.css";
 
 interface StatItem {
@@ -31,7 +32,11 @@ export default function PageHero({
         </>
       ) : (
         <>
-          <img src={imageSrc} alt={title} className={styles.heroImage} />
+          <img
+            src={imageSrc}
+            alt={`${title} Banner - Vashishtha Luxury Fashion`}
+            className={styles.heroImage}
+          />
           <div className={styles.overlay} />
         </>
       )}

@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ImageGallery from "@/components/ImageGallery";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Vashishtha in the Limelight | Vashishtha Luxury Fashion Ltd.",
+  title: "Limelight & Press Features",
   description:
-    "Runway presentations, editorial shoots, and celebrity styling collaborations featuring Vashishtha's embroidery and embellishment craftsmanship on the global fashion stage.",
+    "Editorial features, global runway moments in Paris & Milan, and celebrity styling collaborations highlighting Vashishtha surface embellishments.",
+  alternates: {
+    canonical: "https://vashishthaluxuryfashionltd.com/media-coverage",
+  },
+  openGraph: {
+    title: "Limelight & Press Features | Vashishtha Luxury Fashion Ltd.",
+    description:
+      "Editorial features, global runway moments, and celebrity styling collaborations.",
+    url: "https://vashishthaluxuryfashionltd.com/media-coverage",
+    images: ["/images/source/media-runway-1.jpg"],
+  },
 };
 
 const runwayImages = [
@@ -42,11 +53,11 @@ export default function MediaCoverage() {
       />
       <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", paddingBottom: "4rem" }}>
 
-        <p className="fade-in text-body" style={{ animationDelay: "0.2s", maxWidth: "900px", margin: "0 auto 2.5rem", textAlign: "center" }}>
-          Alongside intricate embroidery development, Vashishtha's work appears in runway presentations, editorial shoots, and celebrity styling references across global fashion media.
-        </p>
+        <Reveal as="p" className="fade-in text-body" style={{ maxWidth: "900px", margin: "0 auto 2.5rem", textAlign: "center" }}>
+          Alongside intricate embroidery development, Vashishtha&apos;s work appears in runway presentations, editorial shoots, and celebrity styling references across global fashion media.
+        </Reveal>
 
-        <section className="slide-up" style={{ animationDelay: "0.25s", marginBottom: "2rem" }}>
+        <section style={{ marginBottom: "2rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.7rem", marginBottom: "0.7rem" }}>Embroideries For Runway Designers</h2>
           <p style={{ marginTop: 0, color: "var(--color-text-muted)", lineHeight: 1.75, marginBottom: "1rem" }}>
             Vashishtha supports full development, from material procurement and hand embellishment execution to final assembled garment output, enabling runway-ready delivery.
@@ -57,7 +68,7 @@ export default function MediaCoverage() {
           />
         </section>
 
-        <section className="slide-up" style={{ animationDelay: "0.3s", marginBottom: "2rem" }}>
+        <section style={{ marginBottom: "2rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.7rem", marginBottom: "0.7rem" }}>Photoshoot Of Designers Collection</h2>
           <p style={{ marginTop: 0, color: "var(--color-text-muted)", lineHeight: 1.75, marginBottom: "1rem" }}>
             Client developments have been featured in high-visibility editorial and campaign contexts, with embroidery-first garments adapted for styling and photography.
@@ -68,10 +79,10 @@ export default function MediaCoverage() {
           />
         </section>
 
-        <section className="slide-up" style={{ animationDelay: "0.35s", marginBottom: "2rem" }}>
+        <section style={{ marginBottom: "2rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.7rem", marginBottom: "0.7rem" }}>Media Coverage</h2>
           <p style={{ marginTop: 0, color: "var(--color-text-muted)", lineHeight: 1.75, marginBottom: "1rem" }}>
-            Vashishtha's client's work has been showcased in prestigious fashion magazines, photoshoots, and celebrity moments, demonstrating the range of the studio's execution capability.
+            Vashishtha&apos;s client&apos;s work has been showcased in prestigious fashion magazines, photoshoots, and celebrity moments, demonstrating the range of the studio&apos;s execution capability.
           </p>
           <ImageGallery
             images={pressImages.map((src, i) => ({ src, alt: `Media and celebrity coverage ${i + 1}` }))}
@@ -79,9 +90,9 @@ export default function MediaCoverage() {
           />
         </section>
 
-        <div className="slide-up" style={{ animationDelay: "0.4s", fontSize: "0.78rem", color: "var(--color-text)", opacity: 0.68, textAlign: "justify", lineHeight: 1.7, borderTop: "1px solid var(--color-border)", paddingTop: "1.5rem" }}>
-          <strong>Disclaimer:</strong> Vashishtha Luxury Fashion Ltd. showcases garments and embroidery developments featured in international events, including the Met Gala, red carpets, brand shows, and media outlets. Final fashion design ownership remains with the respective client and brand; Vashishtha's core role is embroidery and technical execution support.
-        </div>
+        <Reveal as="div" style={{ fontSize: "0.78rem", color: "var(--color-text)", opacity: 0.68, textAlign: "justify", lineHeight: 1.7, borderTop: "1px solid var(--color-border)", paddingTop: "1.5rem" }}>
+          <strong>Disclaimer:</strong> Vashishtha Luxury Fashion Ltd. showcases garments and embroidery developments featured in international events, including the Met Gala, red carpets, brand shows, and media outlets. Final fashion design ownership remains with the respective client and brand; Vashishtha&apos;s core role is embroidery and technical execution support.
+        </Reveal>
       </div>
     </div>
   );

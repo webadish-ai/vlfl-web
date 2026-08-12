@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ImageGallery from "@/components/ImageGallery";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Our Services | Vashishtha Luxury Fashion Ltd.",
+  title: "Services & Embellishment Techniques",
   description:
     "Hand-rendered zardozi to computerized sequin embroidery, embellished accessories, digital printing, and cut-and-sew tailoring — 9+ specialized couture techniques, 100% in-house.",
+  alternates: {
+    canonical: "https://vashishthaluxuryfashionltd.com/embroidery",
+  },
+  openGraph: {
+    title: "Services & Embellishment Techniques | Vashishtha Luxury Fashion Ltd.",
+    description:
+      "Hand-rendered zardozi to computerized sequin embroidery, embellished accessories, and digital printing.",
+    url: "https://vashishthaluxuryfashionltd.com/embroidery",
+    images: ["/images/raw-materials.jpg"],
+  },
 };
 
 const servicesList = [
@@ -50,11 +61,11 @@ export default function Services() {
         ]}
       />
       <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", paddingBottom: "4rem" }}>
-        <p className="fade-in text-body" style={{ animationDelay: "0.2s", margin: "0 auto 2.5rem", maxWidth: "900px", textAlign: "center" }}>
+        <Reveal as="p" className="fade-in text-body" style={{ margin: "0 auto 2.5rem", maxWidth: "900px", textAlign: "center" }}>
           Vashishtha Luxury Fashion Ltd. creates distinctive embellishment developments through hand embroidery, machine precision, material innovation, color detailing, fabric manipulation, prints, and engineered finishing.
-        </p>
+        </Reveal>
 
-        <section className="slide-up" style={{ animationDelay: "0.25s", marginBottom: "2.5rem" }}>
+        <Reveal as="section" style={{ marginBottom: "2.5rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.7rem", marginBottom: "0.8rem" }}>Hand Embroidery</h2>
           <p style={{ marginTop: 0, color: "var(--color-text-muted)", lineHeight: 1.75, marginBottom: "1rem" }}>
             A source-site highlight section showcasing the hand embroidery language Vashishtha is known for: intricate surface work, distinctive bead mixes, and couture-led execution discipline.
@@ -71,9 +82,9 @@ export default function Services() {
               background: "#000",
             }}
           />
-        </section>
+        </Reveal>
 
-        <section className="slide-up" style={{ animationDelay: "0.3s", marginBottom: "2.5rem" }}>
+        <section style={{ marginBottom: "2.5rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.7rem", marginBottom: "1rem" }}>Variety Of Embellishments</h2>
           <ImageGallery
             images={servicesList.map((s) => ({ src: s.img, alt: s.title, caption: s.title }))}
@@ -81,7 +92,7 @@ export default function Services() {
           />
         </section>
 
-        <section className="slide-up" style={{ animationDelay: "0.35s", marginBottom: "2.5rem" }}>
+        <section style={{ marginBottom: "2.5rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.7rem", marginBottom: "0.7rem" }}>Assembled Textile Garments - No Base Fabric</h2>
           <p style={{ marginTop: 0, color: "var(--color-text-muted)", lineHeight: 1.75, marginBottom: "1rem" }}>
             Experimental constructs where embellishment structure itself forms the garment body, engineered for lightness, flexibility, and visual impact.
@@ -92,7 +103,7 @@ export default function Services() {
           />
         </section>
 
-        <section className="slide-up" style={{ animationDelay: "0.4s", marginBottom: "2.5rem" }}>
+        <section style={{ marginBottom: "2.5rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.7rem", marginBottom: "0.7rem" }}>Stitched Textile Garments - Cut & Sew Tailoring</h2>
           <p style={{ marginTop: 0, color: "var(--color-text-muted)", lineHeight: 1.75, marginBottom: "1rem" }}>
             Alongside embellishment execution, we support complete tailoring and finishing for full-factored development from raw materials to final dispatch-ready garments.
@@ -102,9 +113,9 @@ export default function Services() {
           />
         </section>
 
-        <div className="slide-up" style={{ animationDelay: "0.45s", fontSize: "0.78rem", color: "var(--color-text)", opacity: 0.68, textAlign: "justify", lineHeight: 1.7, borderTop: "1px solid var(--color-border)", paddingTop: "1.5rem" }}>
+        <Reveal as="div" style={{ fontSize: "0.78rem", color: "var(--color-text)", opacity: 0.68, textAlign: "justify", lineHeight: 1.7, borderTop: "1px solid var(--color-border)", paddingTop: "1.5rem" }}>
           <strong>Disclaimer:</strong> Vashishtha Luxury Fashion Ltd. showcases garments featured in international fashion events, including the Met Gala, red carpets, brand shows, and media outlets to demonstrate execution capability. Final designs remain the sole property of client brands, and Vashishtha specializes in embroidery craftsmanship and technical execution support rather than retail sale of these garments.
-        </div>
+        </Reveal>
       </div>
     </div>
   );

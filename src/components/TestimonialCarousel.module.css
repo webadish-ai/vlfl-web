@@ -1,0 +1,133 @@
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.track {
+  display: grid;
+  grid-template-columns: auto minmax(0, 640px) auto;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.card {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  padding: 2rem;
+  min-height: 220px;
+}
+
+.avatarRow {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.1rem;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.avatarFallback {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.location {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.quote {
+  margin: 0;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+.navButton {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.navButton:hover,
+.navButton:focus-visible {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.navButton:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.dot:hover,
+.dot:focus-visible {
+  border-color: var(--color-accent);
+}
+
+.dotActive {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+@media (max-width: 640px) {
+  .track {
+    grid-template-columns: 1fr;
+  }
+  .navButton {
+    display: none;
+  }
+  .card {
+    padding: 1.5rem;
+  }
+}

@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Development & Production Process | Vashishtha Luxury Fashion Ltd.",
+  title: "Development & Production Process",
   description:
     "A disciplined, transparent 7-stage workflow — research, sourcing, client development, CAD, production, quality control, and dispatch — built for international fashion houses.",
+  alternates: {
+    canonical: "https://vashishthaluxuryfashionltd.com/process",
+  },
+  openGraph: {
+    title: "Development & Production Process | Vashishtha Luxury Fashion Ltd.",
+    description:
+      "A disciplined, transparent 7-stage workflow built for international fashion houses and couture labels.",
+    url: "https://vashishthaluxuryfashionltd.com/process",
+    images: ["/images/source/process-overview.jpg"],
+  },
 };
 
 const processSteps = [
@@ -67,37 +78,39 @@ export default function Process() {
         ]}
       />
       <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", paddingBottom: "4rem" }}>
-        <p className="text-body fade-in" style={{ animationDelay: "0.2s", maxWidth: "900px", margin: "0 auto 2.5rem", textAlign: "center" }}>
+        <Reveal as="p" className="text-body fade-in" style={{ maxWidth: "900px", margin: "0 auto 2.5rem", textAlign: "center" }}>
           At Vashishtha Luxury Fashion Ltd., execution flows through seven connected stages: Research & Development, Sourcing, Client Development, Artwork & CAD, Production, Quality Control, and Final Dispatch.
-        </p>
+        </Reveal>
 
-        <section className="slide-up" style={{ animationDelay: "0.25s", marginBottom: "2.5rem" }}>
+        <Reveal as="section" style={{ marginBottom: "2.5rem" }}>
           <img src="/images/source/process-overview.jpg" alt="Process overview" style={{ width: "100%", border: "1px solid var(--color-border)", objectFit: "cover", aspectRatio: "16 / 9" }} />
-        </section>
+        </Reveal>
 
-        <section style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem", marginBottom: "2.5rem" }}>
+        <Reveal as="section" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "1rem", marginBottom: "2.5rem" }}>
           <img src="/images/source/process-development.png" alt="Development process" style={{ width: "100%", border: "1px solid var(--color-border)", objectFit: "contain", background: "var(--color-surface)", padding: "1rem", aspectRatio: "4 / 3" }} />
           <img src="/images/source/process-cad.png" alt="CAD process" style={{ width: "100%", border: "1px solid var(--color-border)", objectFit: "contain", background: "var(--color-surface)", padding: "1rem", aspectRatio: "4 / 3" }} />
           <img src="/images/source/process-product.png" alt="Production process" style={{ width: "100%", border: "1px solid var(--color-border)", objectFit: "contain", background: "var(--color-surface)", padding: "1rem", aspectRatio: "4 / 3" }} />
-        </section>
+        </Reveal>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "1rem", marginBottom: "2.5rem" }}>
           {processSteps.map((item, index) => (
-            <article
+            <Reveal
               key={item.step}
-              className="slide-up card-hover"
-              style={{ animationDelay: `${0.2 + index * 0.06}s`, padding: "1.4rem", border: "1px solid var(--color-border)", background: "var(--color-surface)" }}
+              as="article"
+              delay={(index % 4) * 0.06}
+              className="card-hover"
+              style={{ padding: "1.4rem", border: "1px solid var(--color-border)", background: "var(--color-surface)" }}
             >
               <p style={{ margin: 0, fontFamily: "var(--font-serif)", fontSize: "2.1rem", color: "var(--color-border)", lineHeight: 1 }}>{item.step}</p>
               <h2 style={{ margin: "0.4rem 0 0.6rem", fontFamily: "var(--font-serif)", fontSize: "1.25rem" }}>{item.title}</h2>
               <p style={{ margin: 0, color: "var(--color-text-muted)", lineHeight: 1.7, fontSize: "0.95rem" }}>{item.desc}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
 
-        <section className="slide-up" style={{ animationDelay: "0.45s" }}>
+        <Reveal as="section">
           <img src="/images/source/process-quality.jpg" alt="Quality control and dispatch" style={{ width: "100%", border: "1px solid var(--color-border)", objectFit: "cover", aspectRatio: "16 / 9" }} />
-        </section>
+        </Reveal>
       </div>
     </div>
   );

@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Sustainability & Community Initiatives | Vashishtha Luxury Fashion Ltd.",
+  title: "Sustainability & Community Initiatives",
   description:
-    "Artisan welfare, women's skill training, plastic reduction, eco-friendly packaging, and textile-education partnerships driving Vashishtha's sustainability agenda since 2010.",
+    "Pioneering eco-friendly embellishments, plastic reduction, artisan livelihood programs, and compliance-led sustainable sourcing in Mumbai.",
+  alternates: {
+    canonical: "https://vashishthaluxuryfashionltd.com/initiative",
+  },
+  openGraph: {
+    title: "Sustainability & Community Initiatives | Vashishtha Luxury Fashion Ltd.",
+    description:
+      "Pioneering eco-friendly embellishments, artisan welfare, and ethical production practices.",
+    url: "https://vashishthaluxuryfashionltd.com/initiative",
+    images: ["/images/source/initiative-plastic.jpg"],
+  },
 };
 
 const initiatives = [
@@ -71,13 +82,19 @@ export default function Initiative() {
       />
       <div className="container" style={{ maxWidth: "1100px", margin: "0 auto", paddingBottom: "4rem" }}>
 
-        <p className="fade-in text-body" style={{ animationDelay: "0.2s", maxWidth: "920px", margin: "0 auto 2.5rem", textAlign: "center" }}>
+        <Reveal as="p" className="fade-in text-body" style={{ maxWidth: "920px", margin: "0 auto 2.5rem", textAlign: "center" }}>
           Since 2010, Vashishtha Luxury Fashion Ltd. has built initiatives around artisan livelihood, inclusive skills, and environmental responsibility in textile and embroidery systems.
-        </p>
+        </Reveal>
 
         <div style={{ display: "grid", gap: "1.25rem" }}>
           {initiatives.map((item, index) => (
-            <article key={item.id} className="slide-up card-hover" style={{ animationDelay: `${0.2 + index * 0.08}s`, border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1rem" }}>
+            <Reveal
+              key={item.id}
+              as="article"
+              delay={(index % 4) * 0.08}
+              className="card-hover"
+              style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1rem" }}
+            >
               <div style={{ display: "grid", gridTemplateColumns: "minmax(220px, 320px) 1fr", gap: "1rem", alignItems: "start" }}>
                 <img src={item.image} alt={item.title} style={{ width: "100%", aspectRatio: "4 / 3", objectFit: "cover", border: "1px solid var(--color-border)" }} />
                 <div>
@@ -87,7 +104,7 @@ export default function Initiative() {
                   <p style={{ margin: 0, color: "var(--color-text-muted)", lineHeight: 1.75 }}>{item.detail}</p>
                 </div>
               </div>
-            </article>
+            </Reveal>
           ))}
         </div>
       </div>

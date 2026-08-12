@@ -1,11 +1,22 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import ContactForm from "@/components/ContactForm";
+import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Vashishtha Luxury Fashion Ltd.",
+  title: "Contact Our Atelier",
   description:
-    "Reach the Vashishtha atelier in Lower Parel, Mumbai for custom swatches, sampling, and full collection manufacturing enquiries — by form, email, or WhatsApp.",
+    "Partner with our Mumbai studio for custom swatches, sampling, and full collection manufacturing inquiries — by form, email, or WhatsApp.",
+  alternates: {
+    canonical: "https://vashishthaluxuryfashionltd.com/contact",
+  },
+  openGraph: {
+    title: "Contact Our Atelier | Vashishtha Luxury Fashion Ltd.",
+    description:
+      "Partner with our Mumbai studio for custom swatches, sampling, and full collection manufacturing inquiries.",
+    url: "https://vashishthaluxuryfashionltd.com/contact",
+    images: ["/images/source/about-infrastructure.jpg"],
+  },
 };
 
 const workingHours = [
@@ -34,20 +45,20 @@ export default function Contact() {
       />
       <div className="container" style={{ maxWidth: "1000px", margin: "0 auto", paddingBottom: "4rem" }}>
 
-        <p className="fade-in text-body" style={{ textAlign: "center", animationDelay: "0.2s", margin: "0 auto 2rem", maxWidth: "700px" }}>
+        <Reveal as="p" className="fade-in text-body" style={{ textAlign: "center", margin: "0 auto 2rem", maxWidth: "700px" }}>
           Send us a message and we shall get back to you. For quick coordination, you can also reach us directly on WhatsApp.
-        </p>
+        </Reveal>
 
-        <section
-          className="slide-up"
-          style={{ animationDelay: "0.15s", marginBottom: "2.5rem", border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1.75rem" }}
+        <Reveal
+          as="section"
+          style={{ marginBottom: "2.5rem", border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1.75rem" }}
         >
           <h2 style={{ marginTop: 0, marginBottom: "1.25rem", fontFamily: "var(--font-serif)", fontSize: "1.4rem" }}>Send a Message</h2>
           <ContactForm />
-        </section>
+        </Reveal>
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
-          <section className="slide-up" style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1.25rem" }}>
+          <Reveal as="section" style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1.25rem" }}>
             <h2 style={{ marginTop: 0, fontFamily: "var(--font-serif)", fontSize: "1.4rem" }}>Office Location</h2>
             <address style={{ margin: 0, fontStyle: "normal", color: "var(--color-text-muted)", lineHeight: 1.8 }}>
               307 | 308, Sun Industrial Estate,
@@ -64,9 +75,9 @@ export default function Contact() {
             <p style={{ margin: 0, color: "var(--color-text-muted)" }}>
               WhatsApp: <a href="tel:+919819399651">+91 981 939 9651</a>
             </p>
-          </section>
+          </Reveal>
 
-          <section className="slide-up" style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1.25rem" }}>
+          <Reveal as="section" delay={0.06} style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1.25rem" }}>
             <h2 style={{ marginTop: 0, fontFamily: "var(--font-serif)", fontSize: "1.4rem" }}>Email</h2>
             <p style={{ marginBottom: "0.25rem" }}><strong>Business Inquiries</strong></p>
             <p style={{ margin: "0 0 0.45rem" }}><a href="mailto:ravi@vashishthaluxuryfashion.com">ravi@vashishthaluxuryfashion.com</a></p>
@@ -77,9 +88,9 @@ export default function Contact() {
 
             <p style={{ marginBottom: "0.25rem" }}><strong>Job Opportunities</strong></p>
             <p style={{ margin: 0 }}><a href="mailto:hr@vashishthaluxuryfashion.com">hr@vashishthaluxuryfashion.com</a></p>
-          </section>
+          </Reveal>
 
-          <section className="slide-up" style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1.25rem" }}>
+          <Reveal as="section" delay={0.12} style={{ border: "1px solid var(--color-border)", background: "var(--color-surface)", padding: "1.25rem" }}>
             <h2 style={{ marginTop: 0, fontFamily: "var(--font-serif)", fontSize: "1.4rem" }}>Hours</h2>
             <div style={{ display: "grid", gap: "0.35rem" }}>
               {workingHours.map(([day, time]) => (
@@ -89,7 +100,7 @@ export default function Contact() {
                 </div>
               ))}
             </div>
-          </section>
+          </Reveal>
         </div>
       </div>
     </div>

@@ -1,20 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import styles from "./page.module.css";
 import HeroVideo from "@/components/HeroVideo";
 import Reveal from "@/components/Reveal";
 import Lightbox from "@/components/Lightbox";
 
 const COLLECTION_IMAGES = [
-  '/images/collection-1.jpg',
-  '/images/collection-0017.jpg',
-  '/images/collection-0019.jpg',
-  '/images/collection-2.jpg',
-  '/images/collection-3.jpg',
-  '/images/collection-4.jpg',
-  '/images/collection-5.jpg',
-  '/images/collection-8.jpg',
+  { src: '/images/collection-1.jpg', width: 1240, height: 1755 },
+  { src: '/images/collection-0017.jpg', width: 1240, height: 1755 },
+  { src: '/images/collection-0019.jpg', width: 1240, height: 1755 },
+  { src: '/images/collection-2.jpg', width: 1240, height: 1755 },
+  { src: '/images/collection-3.jpg', width: 1240, height: 1755 },
+  { src: '/images/collection-4.jpg', width: 2012, height: 2648 },
+  { src: '/images/collection-5.jpg', width: 2012, height: 2648 },
+  { src: '/images/collection-8.jpg', width: 2012, height: 2648 },
 ];
 
 export default function HomeClient() {
@@ -57,14 +58,14 @@ export default function HomeClient() {
         
         <div className={styles.gallery}>
           <div className={styles.galleryItem}>
-            <div className={styles.imagePlaceholder} style={{ padding: 0, border: 'none', backgroundColor: '#fff' }}>
-              <img src="/images/archive.jpg" alt="Our Workspace" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            <div className={styles.imagePlaceholder} style={{ padding: 0, border: 'none', backgroundColor: '#fff', position: 'relative' }}>
+              <Image src="/images/archive.jpg" alt="Our Workspace" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'contain' }} />
             </div>
             <h3 className={styles.galleryTitle}>Hand Embroidery Archive</h3>
           </div>
           <div className={styles.galleryItem}>
-            <div className={styles.imagePlaceholder} style={{ padding: 0, border: 'none', backgroundColor: '#fff' }}>
-              <img src="/images/source/about-machine.jpg" alt="Computerized embroidery setup" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+            <div className={styles.imagePlaceholder} style={{ padding: 0, border: 'none', backgroundColor: '#fff', position: 'relative' }}>
+              <Image src="/images/source/about-machine.jpg" alt="Computerized embroidery setup" fill sizes="(max-width: 768px) 100vw, 50vw" style={{ objectFit: 'contain' }} />
             </div>
             <h3 className={styles.galleryTitle}>Machine & CAD Precision</h3>
           </div>
@@ -115,14 +116,14 @@ export default function HomeClient() {
       </section>
       {/* RECENT COLLECTION */}
       <section className="section-padding container">
-        <Reveal as="h2" className="title-medium text-center">Vashishtha's Recent Collection</Reveal>
+        <Reveal as="h2" className="title-medium text-center">Vashishtha&apos;s Recent Collection</Reveal>
         <Reveal as="div" delay={0.1} className="text-center" style={{ marginBottom: '2rem' }}>
            <p className="text-body" style={{ maxWidth: "720px", margin: "0 auto" }}>A selection from the source-site collection archive, highlighting embellished silhouettes, surface development, and couture-ready finishing.</p>
         </Reveal>
         <div className={styles.collectionGrid}>
-          {COLLECTION_IMAGES.map((src, index) => (
+          {COLLECTION_IMAGES.map((img, index) => (
             <Reveal
-              key={src}
+              key={img.src}
               as="div"
               delay={(index % 4) * 0.08}
               className={`${styles.collectionItem} hover-zoom-container card-hover`}
@@ -133,7 +134,16 @@ export default function HomeClient() {
                 onClick={() => setLightboxIndex(index)}
                 aria-label={`View collection item ${index + 1} full size`}
               >
-                <img src={src} alt={`Collection Item ${index + 1}`} className="hover-zoom-img" loading="lazy" />
+                <Image
+                  src={img.src}
+                  alt={`Collection Item ${index + 1}`}
+                  width={img.width}
+                  height={img.height}
+                  sizes="(max-width: 768px) 100vw, 280px"
+                  className="hover-zoom-img"
+                  style={{ width: "100%", height: "auto" }}
+                  loading="lazy"
+                />
               </button>
             </Reveal>
           ))}
@@ -141,7 +151,7 @@ export default function HomeClient() {
       </section>
 
       <Lightbox
-        images={COLLECTION_IMAGES}
+        images={COLLECTION_IMAGES.map((img) => img.src)}
         index={lightboxIndex}
         onClose={() => setLightboxIndex(null)}
         onNavigate={setLightboxIndex}

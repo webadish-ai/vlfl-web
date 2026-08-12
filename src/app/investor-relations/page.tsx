@@ -1,40 +1,25 @@
-type DocumentItem = {
-  title: string;
-  url: string;
-  note?: string;
-};
-
-type InvestorSection = {
-  id: string;
-  title: string;
-  sourceUrl: string;
-  documents: DocumentItem[];
-};
-
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
+import Reveal from "@/components/Reveal";
+import InvestorDocumentSections, { type InvestorSection } from "@/components/InvestorDocumentSections";
 
 export const metadata: Metadata = {
-  title: "Investor Relations | Vashishtha Luxury Fashion Ltd.",
+  title: "Investor Relations & Disclosures",
   description:
-    "Statutory filings, financial reports, board policies, shareholding patterns, and corporate governance disclosures for Vashishtha Luxury Fashion Ltd. investors.",
+    "Official financial reports, annual filings, SEBI regulation disclosures, board policies, and corporate governance documents for Vashishtha Luxury Fashion Ltd.",
+  alternates: {
+    canonical: "https://vashishthaluxuryfashionltd.com/investor-relations",
+  },
+  openGraph: {
+    title: "Investor Relations | Vashishtha Luxury Fashion Ltd.",
+    description:
+      "Official financial reports, annual filings, SEBI regulation disclosures, and corporate governance documents.",
+    url: "https://vashishthaluxuryfashionltd.com/investor-relations",
+    images: ["/images/source/about-global.jpg"],
+  },
 };
 
 const SITE_URL = "http://www.vashishthaluxuryfashionltd.com";
-
-const toLocalDocUrl = (url: string) => {
-  const absoluteUrl = url.startsWith("http") ? url : `${SITE_URL}${url}`;
-  const uploadsMarker = "/wp-content/uploads/";
-  const uploadsIndex = absoluteUrl.indexOf(uploadsMarker);
-
-  if (uploadsIndex === -1) {
-    return absoluteUrl;
-  }
-
-  const uploadsPath = absoluteUrl.slice(uploadsIndex + uploadsMarker.length);
-  const fileName = uploadsPath.replaceAll("/", "-");
-  return `/investor-docs/${fileName}`;
-};
 
 const sections: InvestorSection[] = [
   {
@@ -274,28 +259,11 @@ export default function InvestorRelations() {
         ]}
       />
       <div className="container" style={{ paddingBottom: "4rem" }}>
-        <p className="text-body fade-in" style={{ animationDelay: "0.2s", maxWidth: "900px", marginBottom: "2rem" }}>
+        <Reveal as="p" className="text-body fade-in" style={{ maxWidth: "900px", marginBottom: "2rem" }}>
           This page consolidates investor relations sections and documents currently published on the official Vashishtha Luxury Fashion Ltd. website.
-        </p>
+        </Reveal>
 
-        <div className="slide-up" style={{ animationDelay: "0.25s", marginBottom: "2rem" }}>
-          <h2 className="title-medium" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
-            Quick Jump
-          </h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "0.75rem" }}>
-            {sections.map((section) => (
-              <a
-                key={section.id}
-                href={`#${section.id}`}
-                style={{ border: "1px solid var(--color-border)", padding: "0.75rem 1rem", textDecoration: "none", fontSize: "0.9rem" }}
-              >
-                {section.title}
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <section className="slide-up" style={{ animationDelay: "0.3s", marginBottom: "2rem", border: "1px solid var(--color-border)", padding: "1.5rem" }}>
+        <Reveal as="section" style={{ marginBottom: "2rem", border: "1px solid var(--color-border)", padding: "1.5rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
             Investor Enquiry Contact
           </h2>
@@ -308,9 +276,9 @@ export default function InvestorRelations() {
           <p style={{ margin: "0.25rem 0", color: "var(--color-text-muted)" }}>
             Office Phone: <a href="tel:+919819399651">+91 9819399651</a>
           </p>
-        </section>
+        </Reveal>
 
-        <section className="slide-up" style={{ animationDelay: "0.35s", marginBottom: "2.5rem", border: "1px solid var(--color-border)", padding: "1.5rem" }}>
+        <Reveal as="section" delay={0.05} style={{ marginBottom: "2.5rem", border: "1px solid var(--color-border)", padding: "1.5rem" }}>
           <h2 className="title-medium" style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
             Board and Key Managerial Personnel
           </h2>
@@ -324,38 +292,9 @@ export default function InvestorRelations() {
           <p style={{ marginTop: "1rem", fontSize: "0.85rem" }}>
             Source: <a href={`${SITE_URL}/board-committees/`} target="_blank" rel="noreferrer">{SITE_URL}/board-committees/</a>
           </p>
-        </section>
+        </Reveal>
 
-        {sections.map((section, index) => (
-          <section
-            id={section.id}
-            key={section.id}
-            className="slide-up"
-            style={{ animationDelay: `${0.4 + index * 0.03}s`, marginBottom: "2rem", border: "1px solid var(--color-border)", padding: "1.5rem" }}
-          >
-            <h2 className="title-medium" style={{ fontSize: "1.5rem", marginBottom: "0.5rem" }}>
-              {section.title}
-            </h2>
-            <p style={{ marginTop: 0, marginBottom: "1rem", fontSize: "0.85rem", color: "var(--color-text-muted)" }}>
-              Source page: <a href={section.sourceUrl} target="_blank" rel="noreferrer">{section.sourceUrl}</a>
-            </p>
-            <div style={{ display: "grid", gap: "0.75rem" }}>
-              {section.documents.map((doc) => (
-                <div key={doc.title} style={{ border: "1px solid var(--color-border)", padding: "0.9rem 1rem" }}>
-                  <a
-                    href={toLocalDocUrl(doc.url)}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ display: "inline-block", margin: 0, fontWeight: 600, fontSize: "0.98rem" }}
-                  >
-                    {doc.title}
-                  </a>
-                  {doc.note ? <p style={{ margin: "0.35rem 0", fontSize: "0.85rem", color: "var(--color-text-muted)" }}>{doc.note}</p> : null}
-                </div>
-              ))}
-            </div>
-          </section>
-        ))}
+        <InvestorDocumentSections sections={sections} />
       </div>
     </div>
   );

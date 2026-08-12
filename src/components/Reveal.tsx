@@ -10,6 +10,7 @@ interface RevealProps {
   as?: ElementType;
   className?: string;
   style?: CSSProperties;
+  id?: string;
 }
 
 export default function Reveal({
@@ -18,6 +19,7 @@ export default function Reveal({
   as: Tag = "div",
   className,
   style,
+  ...rest
 }: RevealProps) {
   const { ref, visible } = useReveal<HTMLElement>();
 
@@ -26,6 +28,7 @@ export default function Reveal({
       ref={ref}
       className={`${styles.reveal} ${visible ? styles.visible : ""} ${className ?? ""}`}
       style={{ transitionDelay: `${delay}s`, ...style }}
+      {...rest}
     >
       {children}
     </Tag>
